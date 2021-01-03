@@ -6,9 +6,15 @@ const expressEjsLayout = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const username = "dzmitry-kamarou"
+const password = "wfrOHt2apWje5Ndg"
+const database = "amethyst"
 require("./config/passport")(passport)
 // mongoose
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.tw2pd.mongodb.net/${database}?retryWrites=true&w=majority`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
     .then(() => console.log('connected...'))
     .catch((err) => console.log(err));
 // EJS
