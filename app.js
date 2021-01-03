@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
@@ -6,9 +9,9 @@ const expressEjsLayout = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-const username = "dzmitry-kamarou"
-const password = "wfrOHt2apWje5Ndg"
-const database = "amethyst"
+const username = process.env.DB_USERNAME
+const password = process.env.DB_PASSWORD
+const database = process.env.DB_NAME
 require("./config/passport")(passport)
 // mongoose
 mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.tw2pd.mongodb.net/${database}?retryWrites=true&w=majority`, {

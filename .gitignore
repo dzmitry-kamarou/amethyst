@@ -4,3 +4,6 @@ node_modules/
 # IDEs
 .idea/
 .vscode/
+
+# Files
+.env
