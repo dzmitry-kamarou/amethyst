@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
-const APP_PORT = process.env.APP_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
@@ -13,9 +13,13 @@ const passport = require('passport');
 const username = process.env.DB_USERNAME
 const password = process.env.DB_PASSWORD
 const database = process.env.DB_NAME
+// non-local
+const connectionString = `mongodb+srv://${username}:${password}@cluster0.tw2pd.mongodb.net/${database}?retryWrites=true&w=majority`
+// local
+// const connectionString = `mongodb://localhost:27017/${database}`
 require("./config/passport")(passport)
 // mongoose
-mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.tw2pd.mongodb.net/${database}?retryWrites=true&w=majority`, {
+mongoose.connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -45,4 +49,4 @@ app.use((req, res, next) => {
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-app.listen(APP_PORT)
+app.listen(PORT)
