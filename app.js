@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
-const PORT = process.env.APP_PORT || 3000;
+const APP_PORT = process.env.APP_PORT || 3000;
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
@@ -45,4 +45,4 @@ app.use((req, res, next) => {
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-app.listen(PORT)
+app.listen(APP_PORT)
