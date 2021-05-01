@@ -1,13 +1,17 @@
 <h1>Login</h1>
-<%- include ('./partials/messages') %>
 <form action="/users/login" method="POST">
     <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="Enter Email"/>
+        <label for="email">Email:
+            <input id="email" type="email" name="email" placeholder="Enter Email"/>
+        </label>
     </div>
     <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Enter Password"/>
+        <label for="password">Password:
+            <input id="password" type="password" name="password" placeholder="Enter Password"/>
+        </label>
     </div>
-    <button type="submit" class="btn btn-primary btn-block">Login</button>
+    <button id="submit" type="submit" class="btn btn-primary btn-block">Login</button>
+    <p>
+        <span id="error"><%- include ('./partials/messages') %></span>
+    </p>
 </form>
