@@ -6,11 +6,11 @@
     <% }) %>
 <% } %>
 <% if(success_msg != '') { %>
-    <p><%= success_msg %> </p>
+    <p><span id="message"><%= success_msg %></span></p>
 <% } %>
 <% if(error_msg != '') { %>
-    <%= error_msg %>
+    <p><span id="message"><%= error_msg %></span></p>
 <% } %>
 <% if(error != '') { %>
-    <%= error %>
+    <p><span id="message"><%= error %></span></p>
 <% } %>

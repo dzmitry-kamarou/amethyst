@@ -30,6 +30,7 @@ app.set('view engine', 'ejs');
 app.use(expressEjsLayout);
 // BodyParser
 app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 //express session
 app.use(session({
     secret: 'secret',
